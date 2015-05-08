@@ -1,0 +1,18 @@
+<nodo id="10">
+	<nodo id="2">
+		<nodo id="1"></nodo>
+	</nodo>
+	<nodo id="7">
+		<nodo id="3"></nodo>
+		<nodo id="6">
+			<nodo id="4"></nodo>
+			<nodo id="5"></nodo>
+		</nodo>
+	</nodo>
+	<nodo id="8">
+	
+	</nodo>
+	<nodo id="9">
+	
+	</nodo>
+</nodo>
