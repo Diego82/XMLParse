@@ -21,6 +21,7 @@ import javax.xml.parsers.ParserConfigurationException;
 // import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -171,46 +172,118 @@ public class domXmlParser extends DomUtil {
         }while((nodo = nodo.getNextSibling())!= null);
     }
     
-    private static String cabecera = "<html>"
-            +"<head>\n"
-            +"<link href = <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'>\n"
-            +"</head>\n"
-            +"<body>\n";
-    
-    private static String pie = "</body>"+"<html>";
+    private static final String cabecera = "<html> \n"
+            + " <head>  \n"
+            + "   <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\" rel=\"stylesheet\" />  \n"
+            + " <meta charset='UTF-8'"
+            + ">  \n"
+            + " </head>  \n"
+            + " <body>  \n";
+
+    private static final String pie = " </body> \n</html>\n";
     
     /**
-     * Este metodo genera el html con tablas de la coleccion de CD's
-     * @param raiz 
-     */
-    public static void myCollection(Document doc, String ficheroSalida){
+     * Este método genera el HTML con tablas de la colección de CDs
+     * @param doc
+     * @param fichero_salida
+    */
+    public static void myCDcollection (Document doc, String fichero_salida){
+        
+        // cargo en una lista los CDs
         NodeList listaCD = doc.getElementsByTagName("cd");
         Element tmpCD;
         try {
-            PrintWriter pw = new PrintWriter(ficheroSalida);
-            pw.println(cabecera+"<table class='table'>");
-            pw.println("<tr> <th>TITLE</th> /n <th>ARTIST</th> <tr>");
-            
-        for(int i=0 ; i< listaCD.getLength() ; i++){
-            tmpCD = (Element) listaCD.item(i);
-            Element tmpNode = (Element) tmpCD.getFirstChild();
-            
-            System.out.println("<tr>");
-            /*do {            
-                System.out.println("<td>"+tmpNode.getNodeValue()+"</td>");
-            } while ((tmpNode = (Element) tmpNode.getNextSibling()) != null);*/
-            
-            System.out.println("\t<td>"+tmpCD.getElementsByTagName("title").item(0).getTextContent()+ "</td>");
-            System.out.println("\t<td>"+tmpCD.getElementsByTagName("artist").item(0).getTextContent()+ "</td>");
-            
-            System.out.println("</tr>"+pie);
-        }
+            PrintWriter pw = new PrintWriter(fichero_salida);
+            pw.println(cabecera + "<table class='table'>");
+            pw.println("<tr> <th>TITLE</th> \n <th>ARTIST</th> </tr>");
+            for (int i = 0; i < listaCD.getLength(); i++) {
+                tmpCD = (Element) listaCD.item(i);
+                // Element tmpNode = (Element) tmpCD.getFirstChild();
+                pw.println("<tr>");
+                /* do {
+                    System.out.println("   <td> "+ tmpNode.getTextContent() +" </td>");
+                } while ( (tmpNode = (Element) tmpNode.getNextSibling()) != null */
+
+                pw.println("   <td>"+
+                        tmpCD.getElementsByTagName("title").item(0).getTextContent() +
+                        "</td>");
+
+                pw.println("   <td>"+
+                        tmpCD.getElementsByTagName("artist").item(0).getTextContent() +
+                        "</td>");
+
+                pw.println("</tr>");
+            }
+            pw.println("</table>"+pie);
+            pw.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(domXmlParser.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error al crear el archivo..." + ex.getMessage());
         }
+    }
+   
+    
+    public static void myCDcollectionByArtist (Document doc, String fichero_salida){
+        
+        // cargo en una lista los CDs
+        
+        
+        NodeList listaNodosCD = doc.getElementsByTagName("cd");
+        Element elementCD;
+        
+        ListaCd miLista = new ListaCd();
+        
+        String titulo = null;
+        String artista = null;
+        String precio = null;
+        String pais = null;
+        String compania = null;
+        Integer anio;
+        try {
+            for (int i = 0; i < listaNodosCD.getLength(); i++) {
+                elementCD = (Element) listaNodosCD.item(i);
+                    // Element tmpNode = (Element) tmpCD.getFirstChild();
+                titulo = elementCD.getElementsByTagName("title").item(0).getTextContent();
+                artista = elementCD.getElementsByTagName("artist").item(0).getTextContent();
+                precio = elementCD.getElementsByTagName("price").item(0).getTextContent();
+                pais = elementCD.getElementsByTagName("country").item(0).getTextContent();
+                compania = elementCD.getElementsByTagName("company").item(0).getTextContent();
+                anio = new Integer(elementCD.getElementsByTagName("year").item(0).getTextContent());
+                miLista.add(new Cd(artista, titulo, pais, precio, compania, anio));
+
+            }
+            
+            
+            Collections.sort(miLista, new CompareCdByArtist());
+            PrintWriter pw = new PrintWriter(fichero_salida);
+            pw.println(cabecera+"<table class='table'>");
+            pw.println("<tr> <th>TITLE</th> \n <th>ARTIST</th> </tr>");
+            
+            for (Cd miCd : miLista){
+                pw.println("<tr>");
+                    pw.println("<td>"+miCd.artista+"</td>");
+                    pw.println("<td>"+miCd.titulo+"</td>");
+                    pw.println("<td>"+miCd.pais+"</td>");
+                    pw.println("<td>"+miCd.precio+"</td>");
+                    pw.println("<td>"+miCd.compania+"</td>");
+                    pw.println("<td>"+miCd.anio+"</td>");
+            
+                pw.println("</tr>");
+            }
+             pw.println("</table>"+pie);
+             pw.close();
+            
+            
+            
+        } catch (FileNotFoundException ex){
+            System.out.println("Error al crear el archivo..."+ ex.getMessage());
+        }
+        
+          
+          
         
         
     }
+    
     
     /**
      * @param args the command line arguments
@@ -228,7 +301,10 @@ public class domXmlParser extends DomUtil {
             NodeList listaPlantas = doc.getElementsByTagName("PLANT");
             System.out.println("En este catalog hay "+listaPlantas.getLength()+" plantas");
             recorrerRecursivo(raiz);*/
-            myCollection(doc, "salida.txt");
+            //myCDcollection(doc, "salida.txt");
+            myCDcollectionByArtist(doc, "salida.txt");
+            myCDcollectionByArtist(doc, "salida.html");
+            
             
         } catch (ParserConfigurationException ex) {
             //Logger.getLogger(domXmlParser.class.getName()).log(Level.SEVERE, null, ex);

@@ -1,0 +1,228 @@
+<html> 
+ <head>  
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />  
+ <meta charset='UTF-8'>  
+ </head>  
+ <body>  
+<table class='table'>
+<tr> <th>TITLE</th> 
+ <th>ARTIST</th> </tr>
+<tr>
+<td>Andrea Bocelli</td>
+<td>Romanza</td>
+<td>EU</td>
+<td>10.80</td>
+<td>Polydor</td>
+<td>1996</td>
+</tr>
+<tr>
+<td>Bee Gees</td>
+<td>One night only</td>
+<td>UK</td>
+<td>10.90</td>
+<td>Polydor</td>
+<td>1998</td>
+</tr>
+<tr>
+<td>Bob Dylan</td>
+<td>Empire Burlesque</td>
+<td>USA</td>
+<td>10.90</td>
+<td>Columbia</td>
+<td>1985</td>
+</tr>
+<tr>
+<td>Bob Dylan</td>
+<td>Modern Times</td>
+<td>USA</td>
+<td>9.44</td>
+<td>Sony</td>
+<td>2006</td>
+</tr>
+<tr>
+<td>Bonnie Tyler</td>
+<td>Hide your heart</td>
+<td>UK</td>
+<td>9.90</td>
+<td>CBS Records</td>
+<td>1988</td>
+</tr>
+<tr>
+<td>Cat Stevens</td>
+<td>The very best of</td>
+<td>UK</td>
+<td>8.90</td>
+<td>Island</td>
+<td>1990</td>
+</tr>
+<tr>
+<td>Dolly Parton</td>
+<td>Greatest Hits</td>
+<td>USA</td>
+<td>9.90</td>
+<td>RCA</td>
+<td>1982</td>
+</tr>
+<tr>
+<td>Dr.Hook</td>
+<td>Sylvias Mother</td>
+<td>UK</td>
+<td>8.10</td>
+<td>CBS</td>
+<td>1973</td>
+</tr>
+<tr>
+<td>Eros Ramazzotti</td>
+<td>Eros</td>
+<td>EU</td>
+<td>9.90</td>
+<td>BMG</td>
+<td>1997</td>
+</tr>
+<tr>
+<td>Gary Moore</td>
+<td>Still got the blues</td>
+<td>UK</td>
+<td>10.20</td>
+<td>Virgin records</td>
+<td>1990</td>
+</tr>
+<tr>
+<td>Joe Cocker</td>
+<td>Unchain my heart</td>
+<td>USA</td>
+<td>8.20</td>
+<td>EMI</td>
+<td>1987</td>
+</tr>
+<tr>
+<td>Jorn Hoel</td>
+<td>Soulsville</td>
+<td>Norway</td>
+<td>7.90</td>
+<td>WEA</td>
+<td>1996</td>
+</tr>
+<tr>
+<td>Kenny Rogers</td>
+<td>For the good times</td>
+<td>UK</td>
+<td>8.70</td>
+<td>Mucik Master</td>
+<td>1995</td>
+</tr>
+<tr>
+<td>Kim Larsen</td>
+<td>Midt om natten</td>
+<td>EU</td>
+<td>7.80</td>
+<td>Medley</td>
+<td>1983</td>
+</tr>
+<tr>
+<td>Luciano Pavarotti</td>
+<td>Pavarotti Gala Concert</td>
+<td>UK</td>
+<td>9.90</td>
+<td>DECCA</td>
+<td>1991</td>
+</tr>
+<tr>
+<td>Many</td>
+<td>1999 Grammy Nominees</td>
+<td>USA</td>
+<td>10.20</td>
+<td>Grammy</td>
+<td>1999</td>
+</tr>
+<tr>
+<td>Otis Redding</td>
+<td>The dock of the bay</td>
+<td>USA</td>
+<td>7.90</td>
+<td>Atlantic</td>
+<td>1987</td>
+</tr>
+<tr>
+<td>Percy Sledge</td>
+<td>When a man loves a woman</td>
+<td>USA</td>
+<td>8.70</td>
+<td>Atlantic</td>
+<td>1987</td>
+</tr>
+<tr>
+<td>Rod Stewart</td>
+<td>Maggie May</td>
+<td>UK</td>
+<td>8.50</td>
+<td>Pickwick</td>
+<td>1990</td>
+</tr>
+<tr>
+<td>Sam Brown</td>
+<td>Stop</td>
+<td>UK</td>
+<td>8.90</td>
+<td>A and M</td>
+<td>1988</td>
+</tr>
+<tr>
+<td>Savage Rose</td>
+<td>Black angel</td>
+<td>EU</td>
+<td>10.90</td>
+<td>Mega</td>
+<td>1995</td>
+</tr>
+<tr>
+<td>Simply Red</td>
+<td>Picture book</td>
+<td>EU</td>
+<td>7.20</td>
+<td>Elektra</td>
+<td>1985</td>
+</tr>
+<tr>
+<td>T`Pau</td>
+<td>Bridge of Spies</td>
+<td>UK</td>
+<td>7.90</td>
+<td>Siren</td>
+<td>1987</td>
+</tr>
+<tr>
+<td>The Communards</td>
+<td>Red</td>
+<td>UK</td>
+<td>7.80</td>
+<td>London</td>
+<td>1987</td>
+</tr>
+<tr>
+<td>Tina Turner</td>
+<td>Private Dancer</td>
+<td>UK</td>
+<td>8.90</td>
+<td>Capitol</td>
+<td>1983</td>
+</tr>
+<tr>
+<td>Van Morrison</td>
+<td>Tupelo Honey</td>
+<td>UK</td>
+<td>8.20</td>
+<td>Polydor</td>
+<td>1971</td>
+</tr>
+<tr>
+<td>Will Smith</td>
+<td>Big Willie style</td>
+<td>USA</td>
+<td>9.90</td>
+<td>Columbia</td>
+<td>1997</td>
+</tr>
+</table> </body> 
+</html>
+
